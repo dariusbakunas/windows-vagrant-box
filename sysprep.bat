@@ -1,0 +1,1 @@
+sysprep.exe /generalize /oobe /shutdown /unattend:unattend.xml
