@@ -15,7 +15,12 @@ which uses packer to atomate this process.
 2. Install Widnows 7 32/64bit (included answer files are for Professional edition)
 3. On Welcome Screen press CTRL+Shift+F3 to reboot in Audit Mode
 4. Install updates, software etc.
-5. Inside the VM, download prepare.bat and launch it with Administrator privileges
+5. Inside the VM, launch command prompt with administrator privileges and run this command:
+
+```bash
+powershell -Command "(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/master/prepare.bat','C:\Windows\Temp\prepare.bat');Start-Process 'c:\Windows\Temp\prepare.bat'"
+```
+
 6. VM will shutdown when done. At this point it is ready to be packaged.
 7. In your host machine, download Vagrant and metadata.json (or checkout the git repo) files and package the vm:
 
