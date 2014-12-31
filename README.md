@@ -18,7 +18,7 @@ After VM is packaged, it can later be provisioned using puppet.
 
     Also make sure to set 1st network adapter to NAT.
 
-2. Install Widnows 7 32/64bit (included answer files are for Professional edition)
+2. Install Widnows 7 32/64bit (included answer files are for Professional edition), don't go past the Welcome Screen (IMPORTANT)
 3. On Welcome Screen press CTRL+Shift+F3 to reboot in Audit Mode
 4. Install updates, software etc.
 5. Inside the VM, launch command prompt with administrator privileges and run this command:
