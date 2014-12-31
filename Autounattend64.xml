@@ -204,12 +204,6 @@
                     <Description>Enable RDP</Description>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
-                <SynchronousCommand wcm:action="add">
-                    <Order>24</Order>
-                    <CommandLine>cmd.exe /c %SystemRoot%\Setup\Scripts\puppet64.bat</CommandLine>
-                    <Description>Install puppet</Description>
-                    <RequiresUserInput>true</RequiresUserInput>
-                </SynchronousCommand>
             </FirstLogonCommands>
             <TimeZone>Pacific Standard Time</TimeZone>
         </component>
