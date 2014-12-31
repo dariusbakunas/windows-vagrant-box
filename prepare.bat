@@ -1,7 +1,7 @@
 @echo off
 
 set sysprep=sysprep.bat
-set base_url=https://cdn.rawgit.com/dariusbakunas/windows-vagrant-box/master
+set base_url=https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/master
 set setup_complete=SetupComplete.cmd
 
 echo %PROCESSOR_ARCHITECTURE% | find /i "x86" > nul
