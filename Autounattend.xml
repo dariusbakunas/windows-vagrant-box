@@ -175,7 +175,7 @@
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
                     <Order>24</Order>
-                    <CommandLine>cmd.exe /c %SystemRoot%\Setup\Scripts\puppet.bat</CommandLine>
+                    <CommandLine>cmd.exe /c %SystemRoot%\Setup\Scripts\puppet32.bat</CommandLine>
                     <Description>Install puppet</Description>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>

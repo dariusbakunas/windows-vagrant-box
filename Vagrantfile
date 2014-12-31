@@ -5,7 +5,7 @@ Vagrant.require_version ">= 1.6.2"
 
 Vagrant.configure("2") do |config|
     config.vm.define "vagrant-windows-7"
-    config.vm.box = "win7_pro_32bit"
+    config.vm.box = "win7_base"
     config.vm.communicator = "winrm"
 
     # Admin user name and password
