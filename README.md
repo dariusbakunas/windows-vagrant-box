@@ -15,9 +15,9 @@ which uses packer to atomate this process.
 2. Install Widnows 7 32/64bit (included answer files are for Professional edition)
 3. On Welcome Screen press CTRL+Shift+F3 to reboot in Audit Mode
 4. Install updates, software etc.
-5. Download prepare.bat and launch with Administrator privileges
-6. VM will shutdown when done
-7. In your host machine, download Vagrant and metadata.json files and package the vm:
+5. Inside the VM, download prepare.bat and launch it with Administrator privileges
+6. VM will shutdown when done. At this point it is ready to be packaged.
+7. In your host machine, download Vagrant and metadata.json (or checkout the git repo) files and package the vm:
 
 ```bash
 % vagrant package --base win7_vm —output win7_base.box —vagrantfile Vagrantfile —include metadata.json
@@ -37,3 +37,12 @@ which uses packer to atomate this process.
 % vagrant init win7_base
 % vagrant up
 ```
+
+* Connect:
+
+```bash
+% vagrant rdp
+```
+
+User: vagrant
+Password: vagrant
