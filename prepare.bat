@@ -3,6 +3,7 @@
 set sysprep=sysprep.bat
 set base_url=https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/master
 set setup_complete=SetupComplete.cmd
+set chef_batch=chef.bat
 
 echo %PROCESSOR_ARCHITECTURE% | find /i "x86" > nul
 if %errorlevel%==0 (
@@ -20,6 +21,7 @@ if %errorlevel%==0 (
 :: download all necessary files
 for %%x in (
         %puppet_batch%,
+        %chef_batch%,
         %compact_batch%,
         %unattend%,
         %setup_complete%,
@@ -38,6 +40,7 @@ pushd c:\Windows\Temp
 
 copy %setup_complete% c:\Windows\Setup\Scripts /y
 copy %puppet_batch% c:\Windows\Setup\Scripts /y
+copy %chef_batch% c:\Windows\Setup\Scripts /y
 
 copy %unattend% c:\Windows\System32\sysprep\unattend.xml /y
 copy %sysprep% c:\Windows\System32\sysprep /y

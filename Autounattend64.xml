@@ -210,6 +210,12 @@
                     <Description>Install puppet</Description>
                     <RequiresUserInput>true</RequiresUserInput>
                 </SynchronousCommand>
+                <SynchronousCommand wcm:action="add">
+                    <Order>25</Order>
+                    <CommandLine>cmd.exe /c %SystemRoot%\Setup\Scripts\chef.bat</CommandLine>
+                    <Description>Install chef</Description>
+                    <RequiresUserInput>true</RequiresUserInput>
+                </SynchronousCommand>
             </FirstLogonCommands>
             <TimeZone>Pacific Standard Time</TimeZone>
         </component>
