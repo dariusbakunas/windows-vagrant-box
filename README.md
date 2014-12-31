@@ -5,10 +5,10 @@ Most scripts are borrowed from https://github.com/joefitzgerald/packer-windows
 which uses packer to atomate this process.
 
 1. Prepare VirtualBox VM for windows, recommended settings:
-    RAM: 1024MB
-    VRAM: 128MB
-    CPU: 2x
-    Name: win7_vm
+    * RAM: 1024MB
+    * VRAM: 128MB
+    * CPU: 2x
+    * Name: win7_vm
 
     Also make sure to set 1st network adapter to NAT.
 
