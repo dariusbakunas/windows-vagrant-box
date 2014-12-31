@@ -19,21 +19,21 @@ which uses packer to atomate this process.
 6. VM will shutdown when done
 7. In your host machine, download Vagrant and metadata.json files and package the vm:
 
-{% highlight bash %}
+```bash
 % vagrant package --base win7_vm —output win7_base.box —vagrantfile Vagrantfile —include metadata.json
-{% endhighlight %}
+```
 
 'win7_vm' must match the VM name in VirtualBox.
 
 8. Import the box:
 
-{% highlight bash %}
+```bash
 % vagrant box add win7_base win7_base.box
-{% endhighlight %}
+```
 
 9. Create the project and launch:
 
-{% highlight bash %}
+```bash
 % vagrant init win7_base
 % vagrant up
-{% endhighlight %}
+```
