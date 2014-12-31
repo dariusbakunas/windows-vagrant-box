@@ -31,7 +31,7 @@ powershell -Command "(New-Object System.Net.WebClient).DownloadFile('https://raw
 7. In your host machine, download Vagrant and metadata.json (or checkout the git repo) files and package the vm:
 
 ```bash
-% vagrant package --base win7_vm —output win7_base.box —vagrantfile Vagrantfile —include metadata.json
+% vagrant package --base win7_vm —output win7_base.box —vagrantfile _Vagrantfile —include metadata.json
 ```
 
 'win7_vm' must match the VM name in VirtualBox.
