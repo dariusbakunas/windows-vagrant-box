@@ -25,13 +25,13 @@ which uses packer to atomate this process.
 
 'win7_vm' must match the VM name in VirtualBox.
 
-8. Import the box:
+* Import the box:
 
 ```bash
 % vagrant box add win7_base win7_base.box
 ```
 
-9. Create the project and launch:
+* Create the project and launch:
 
 ```bash
 % vagrant init win7_base
