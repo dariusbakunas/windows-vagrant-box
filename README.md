@@ -44,5 +44,5 @@ which uses packer to atomate this process.
 % vagrant rdp
 ```
 
-User: vagrant
-Password: vagrant
+* User: vagrant
+* Password: vagrant
