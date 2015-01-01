@@ -24,7 +24,7 @@ After VM is packaged, it can later be provisioned using puppet.
 5. Inside the VM, launch command prompt with administrator privileges and run this command:
 
 ```bash
-powershell -Command "(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/master/prepare.ps1','C:\Windows\Temp\prepare.ps1');iex 'c:\Windows\Temp\prepare.ps1'"
+powershell -executionPolicy bypass -Command "(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/master/prepare.ps1','C:\Windows\Temp\prepare.ps1');iex 'c:\Windows\Temp\prepare.ps1'"
 ```
 
 6. VM will shutdown when done. At this point it is ready to be packaged.
