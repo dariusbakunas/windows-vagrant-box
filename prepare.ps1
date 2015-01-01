@@ -105,7 +105,7 @@ Function Cleanup{
     Pop-Location
 
     # delete itself
-    Remove-Item $MyINvocation.InvocationName
+    Remove-Item "prepare.ps1"
 }
 
 ConfigureVariables
