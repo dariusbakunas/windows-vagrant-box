@@ -103,6 +103,9 @@ Function Cleanup{
     Remove-Item -path 'sdelete.exe' -ErrorAction SilentlyContinue
     Remove-Item -path 'Eula.txt' -ErrorAction SilentlyContinue
     Pop-Location
+
+    # delete itself
+    Remove-Item $MyINvocation.InvocationName
 }
 
 ConfigureVariables
