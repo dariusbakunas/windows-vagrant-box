@@ -60,24 +60,25 @@ Function Compact{
 
     Push-Location $env:temp
 
-    (Start-Process -FilePath 'msiexec.exe' -ArgumentList '/qb /i 7z.msi' -Wait -Passthru).ExitCode
-    (Start-Process -FilePath $zipExec -ArgumentList 'x ultradefrag.zip' -Wait -Passthru).ExitCode
-    (Start-Process -FilePath $zipExec -ArgumentList 'x SDelete.zip' -Wait -Passthru).ExitCode
+    Start-Process -FilePath 'msiexec.exe' -ArgumentList '/qb /i 7z.msi' -Wait
+    Start-Process -FilePath $zipExec -ArgumentList 'x ultradefrag.zip' -Wait
+    Start-Process -FilePath $zipExec -ArgumentList 'x SDelete.zip' -Wait
 
     # Cleanup updates
     Stop-Service wuauserv
     Remove-Item -path $updatePath -Force -Recurse -ErrorAction SilentlyContinue
-    New-Item $updatePath -type directory
+    New-Item $updatePath -type directory > $null
     Start-Service wuauserv
 
     # Defragment drive
-    (Start-Process -FilePath "$defragPath/udefrag.exe" -ArgumentList '--optimize --repeat C:' -Wait -Passthru).ExitCode
+    Start-Process -FilePath "$defragPath/udefrag.exe" -ArgumentList '--optimize --repeat C:' -Wait
 
     # Run sdelete
-    New-Item -Path HKCU:\Software -Name Sysinternals -Force
-    New-Item -Path HKCU:\Software\Sysinternals -Name SDelete -Force
-    New-ItemProperty -Path HKCU:\Software\Sysinternals\SDelete -Name EulaAccepted -PropertyType Dword -Value 1 -Force
-    (Start-Process -FilePath "sdelete.exe" -ArgumentList '-q -z C:' -Wait -Passthru).ExitCode
+    New-Item -Path HKCU:\Software -Name Sysinternals -Force > $null
+    New-Item -Path HKCU:\Software\Sysinternals -Name SDelete -Force > $null
+    New-ItemProperty -Path HKCU:\Software\Sysinternals\SDelete -Name EulaAccepted -PropertyType Dword -Value 1 -Force > $null
+
+    Start-Process -FilePath "sdelete.exe" -ArgumentList '-q -z C:' -Wait
 
     Pop-Location
 }
@@ -86,7 +87,9 @@ Function Sysprep{
     Write-Host "[*] Running sysprep"
     DownloadFile "$baseUrl/$unattend" $sysprepPath 'unattend.xml'
     Push-Location $sysprepPath
-    (Start-Process -FilePath "sysprep.exe" -ArgumentList '/generalize /oobe /shutdown /unattend:unattend.xml' -Wait -Passthru).ExitCode
+
+    Start-Process -FilePath "sysprep.exe" -ArgumentList '/generalize /oobe /shutdown /unattend:unattend.xml' -Wait
+
     Pop-Location
 }
 
@@ -105,7 +108,7 @@ Function Cleanup{
 ConfigureVariables
 
 if (!(Test-Path $scriptPath)){
-    New-Item $scriptPath -type directory
+    New-Item $scriptPath -type directory > $null
 }
 
 if ($skipPuppet -eq $false){
