@@ -14,8 +14,7 @@ Function ConfigureVariables{
     $script:scriptPath = 'c:\Windows\Setup\Scripts'
     $script:sysprepPath = 'c:\Windows\System32\sysprep'
 
-    if (($ENV:Processor_Architecture -eq "x86" -and (test-path env:PROCESSOR_ARCHITEW6432)) `
-        -or ($ENV:Processor_Architecture -eq "AMD64")) {
+    if ((Get-WmiObject Win32_OperatingSystem).OSArchitecture -eq "64-bit") {
         # 64bit Windows
         $script:puppetBatch = 'puppet32.bat'
         $script:unattend = 'Autounattend.xml'
