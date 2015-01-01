@@ -88,7 +88,7 @@ Function Sysprep{
     DownloadFile "$baseUrl/$unattend" $sysprepPath 'unattend.xml'
     Push-Location $sysprepPath
 
-    Start-Process -FilePath "sysprep.exe" -ArgumentList '/generalize /oobe /shutdown /unattend:unattend.xml' -Wait
+    Start-Process -FilePath "./sysprep.exe" -ArgumentList '/generalize /oobe /shutdown /unattend:unattend.xml'
 
     Pop-Location
 }
