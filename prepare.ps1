@@ -16,17 +16,17 @@ Function ConfigureVariables{
 
     if ((Get-WmiObject Win32_OperatingSystem).OSArchitecture -eq "64-bit") {
         # 64bit Windows
-        $script:puppetBatch = 'puppet32.bat'
-        $script:unattend = 'Autounattend.xml'
-        $script:zipUrl = 'http://downloads.sourceforge.net/sevenzip/7z920.msi'
+        $script:puppetBatch = 'puppet64.bat'
+        $script:unattend = 'Autounattend64.xml'
+        $script:zipUrl = 'http://downloads.sourceforge.net/sevenzip/7z920-x64.msi'
         $script:zipExec = 'C:\Program Files (x86)\7-Zip\7z.exe'
         $script:defragUrl = 'http://downloads.sourceforge.net/ultradefrag/ultradefrag-portable-6.0.2.bin.amd64.zip'
         $script:defragPath = './ultradefrag-portable-6.0.2.amd64'
     } else {
         # 32bit Windows
-        $script:puppetBatch = 'puppet64.bat'
-        $script:unattend = 'Autounattend64.xml'
-        $script:zipUrl = 'http://downloads.sourceforge.net/sevenzip/7z920-x64.msi'
+        $script:puppetBatch = 'puppet32.bat'
+        $script:unattend = 'Autounattend.xml'
+        $script:zipUrl = 'http://downloads.sourceforge.net/sevenzip/7z920.msi'
         $script:zipExec = 'C:\Program Files\7-Zip\7z.exe'
         $script:defragUrl = 'http://downloads.sourceforge.net/ultradefrag/ultradefrag-portable-6.0.2.bin.i386.zip'
         $script:defragPath = './ultradefrag-portable-6.0.2.i386'
