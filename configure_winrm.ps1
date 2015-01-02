@@ -1,3 +1,4 @@
+Start-Transcript -path C:\output.txt -append
 $nlm = [Activator]::CreateInstance([Type]::GetTypeFromCLSID([Guid]"{DCB00C01-570F-4A9B-8D69-199FDBA5723B}"))
 $connections = $nlm.getnetworkconnections()
 $connections |foreach {
@@ -21,4 +22,4 @@ net stop winrm
 sc config winrm start= auto
 net start winrm
 
-pause
+Stop-Transcript
