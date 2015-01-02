@@ -1,14 +1,14 @@
 Scripts for creating Windows Vagrant Box
 ========================================
 
-Most scripts are borrowed from https://github.com/joefitzgerald/packer-windows
+Some bits are borrowed from https://github.com/joefitzgerald/packer-windows
 which uses packer to atomate this process.
 
 This approach allows to preinstall chosen software while booted in Windows audit mode.
 All desktop icons and profile settings are preserved. Included answer files are
 for Windows 7 Profesional 32/64bit.
 
-After VM is packaged, it can later be provisioned using puppet.
+After VM is packaged, it can later be provisioned using puppet or chef.
 
 1. Prepare VirtualBox VM for windows, recommended settings:
     * RAM: 1024MB
