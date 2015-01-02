@@ -37,7 +37,7 @@
             <ShowWindowsLive>false</ShowWindowsLive>
             <FirstLogonCommands>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>powershell -executionPolicy bypass -Command &quot;iex &apos;%SystemRoot%\Setup\Scripts\configure_winrm.ps1&apos;&quot;</CommandLine>
+                    <CommandLine>cmd.exe /c powershell -executionPolicy bypass -Command &quot;iex &apos;%SystemRoot%\Setup\Scripts\configure_winrm.ps1&apos;&quot;</CommandLine>
                     <Description>Configure WinRM</Description>
                     <Order>1</Order>
                     <RequiresUserInput>true</RequiresUserInput>
