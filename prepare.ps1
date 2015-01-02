@@ -6,7 +6,7 @@ Param(
 )
 
 Function ConfigureVariables{
-    $script:baseUrl = 'https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/develop'
+    $script:baseUrl = 'https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/master'
     $script:sdeleteUrl = 'http://download.sysinternals.com/files/SDelete.zip'
     $script:setupComplete = 'SetupComplete.cmd'
     $script:chefBatch = 'chef.bat'
