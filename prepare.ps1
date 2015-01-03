@@ -10,7 +10,7 @@ Function ConfigureVariables{
     $script:sdeleteUrl = 'http://download.sysinternals.com/files/SDelete.zip'
     $script:setupComplete = 'SetupComplete.cmd'
     $script:chefBatch = 'chef.bat'
-    $script:winrm_config = 'configure_winrm.ps1'
+    $script:config_script = 'apply_config.ps1'
 
     $script:scriptPath = 'c:\Windows\Setup\Scripts'
     $script:sysprepPath = 'c:\Windows\System32\sysprep'
@@ -124,7 +124,7 @@ if ($skipChef -eq $false){
 }
 
 DownloadFile "$baseUrl/$setupComplete" $scriptPath
-DownloadFile "$baseUrl/$winrm_config" $scriptPath
+DownloadFile "$baseUrl/$config_script" $scriptPath
 
 if ($skipCompact -eq $false){
     Compact
