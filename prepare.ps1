@@ -51,6 +51,11 @@ Function DownloadFile{
     }
 }
 
+Function SaveMAC{
+    $adapter = gwmi Win32_NetworkAdapter | where {$_.AdapterType -like 'ethernet*'} | Select-Object -first 1
+    $adapter.MACAddress > $scriptPath\mac.txt
+}
+
 Function Compact{
     Write-Host "[*] Running compact"
     $updatePath = 'C:\Windows\SoftwareDistribution\Download'
@@ -125,6 +130,8 @@ if ($skipChef -eq $false){
 
 DownloadFile "$baseUrl/$setupComplete" $scriptPath
 DownloadFile "$baseUrl/$config_script" $scriptPath
+
+SaveMAC
 
 if ($skipCompact -eq $false){
     Compact
