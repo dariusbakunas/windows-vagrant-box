@@ -121,7 +121,7 @@ if (!(Test-Path $scriptPath)){
 }
 
 if ($skipPuppet -eq $false){
-    DownloadFile "$baseUrl/$puppetBatch" $scriptPath
+    DownloadFile "$baseUrl/$puppetBatch" $scriptPath 'puppet.bat'
 }
 
 if ($skipChef -eq $false){
