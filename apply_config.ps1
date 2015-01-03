@@ -25,4 +25,4 @@ sc.exe config winrm start= auto
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0
 netsh advfirewall firewall set rule group="remote desktop" new enable=Yes
 
-$disabled_adapters | foreach { $_.enable() }
+# $disabled_adapters | foreach { $_.enable() }
