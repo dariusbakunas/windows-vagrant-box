@@ -18,13 +18,13 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' 
 netsh advfirewall firewall set rule group="remote desktop" new enable=Yes
 
 # Show file extensions in Explorer
-Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -name 'HideFileExt' -Value 0 -Type DWord
+Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -name 'HideFileExt' -Value 0
 
 # Zero Hibernation file
-Set-ItemProperty -Path 'HKLM\System\CurrentControlSet\Control\Power' -name 'HiberFileSizePercent' -Value 0 -Type DWord
+Set-ItemProperty -Path 'HKLM\System\CurrentControlSet\Control\Power' -name 'HiberFileSizePercent' -Value 0
 
 # Disable Hibernation
-Set-ItemProperty -Path 'HKLM\System\CurrentControlSet\Control\Power' -name 'HibernateEnabled' -Value 0 -Type DWord
+Set-ItemProperty -Path 'HKLM\System\CurrentControlSet\Control\Power' -name 'HibernateEnabled' -Value 0
 
 # Disable vagrant user password expiration
 wmic useraccount where "name='vagrant'" set PasswordExpires=FALSE
@@ -42,4 +42,4 @@ if ((Test-Path $chef_batch)){
 
 $adapters | foreach { $_.enable() }
 
-end-transcript
+Stop-Transcript
