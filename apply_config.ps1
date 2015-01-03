@@ -21,10 +21,10 @@ netsh advfirewall firewall set rule group="remote desktop" new enable=Yes
 Set-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -name 'HideFileExt' -Value 0
 
 # Zero Hibernation file
-Set-ItemProperty -Path 'HKLM\System\CurrentControlSet\Control\Power' -name 'HiberFileSizePercent' -Value 0
+Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Power' -name 'HiberFileSizePercent' -Value 0
 
 # Disable Hibernation
-Set-ItemProperty -Path 'HKLM\System\CurrentControlSet\Control\Power' -name 'HibernateEnabled' -Value 0
+Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Power' -name 'HibernateEnabled' -Value 0
 
 # Disable vagrant user password expiration
 wmic useraccount where "name='vagrant'" set PasswordExpires=FALSE
