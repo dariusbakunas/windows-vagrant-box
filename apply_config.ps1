@@ -1,5 +1,3 @@
- start-transcript -path c:\debug.log
-
 # Disable all ethernet adapters except the one that is used by Vagrant
 $mac = Get-Content 'c:\Windows\Setup\Scripts\mac.txt'
 $adapters = gwmi Win32_NetworkAdapter | where {$_.AdapterType -like 'ethernet*' -and $_.MACAddress -ne $mac}
@@ -41,5 +39,3 @@ if ((Test-Path $chef_batch)){
 }
 
 $adapters | foreach { $_.enable() }
-
-Stop-Transcript
