@@ -1,6 +1,6 @@
 # Disable all ethernet adapters except first one (which is NAT adapter used by vagrant)
 $adapters = gwmi win32_networkadapter | where {$_.AdapterType -like 'ethernet*'}  | Sort-Object index
-$disabled_adapters = adapters[1 .. ($adapters.length - 1)]
+$disabled_adapters = $adapters[1 .. ($adapters.length - 1)]
 $disabled_adapters  | foreach { $_.disable() }
 
 $nlm = [Activator]::CreateInstance([Type]::GetTypeFromCLSID([Guid]"{DCB00C01-570F-4A9B-8D69-199FDBA5723B}"))
