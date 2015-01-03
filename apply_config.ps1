@@ -1,3 +1,5 @@
+ start-transcript -path c:\debug.log
+
 # Disable all ethernet adapters except the one that is used by Vagrant
 $mac = Get-Content 'c:\Windows\Setup\Scripts\mac.txt'
 $adapters = gwmi Win32_NetworkAdapter | where {$_.AdapterType -like 'ethernet*' -and $_.MACAddress -ne $mac}
@@ -31,11 +33,13 @@ $puppet_batch = 'c:\Windows\Setup\Scripts\puppet.bat'
 $chef_batch = 'c:\Windows\Setup\Scripts\chef.bat'
 
 if ((Test-Path $puppet_batch)){
-    Start-Process $puppet_batch -Wait
+    Start-Process $puppet_batch
 }
 
 if ((Test-Path $chef_batch)){
-    Start-Process $chef_batch -Wait
+    Start-Process $chef_batch
 }
 
 $adapters | foreach { $_.enable() }
+
+end-transcript
