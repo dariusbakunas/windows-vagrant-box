@@ -25,8 +25,8 @@ After VM is packaged, it can later be provisioned using puppet or chef.
     configures WinRM service and it is only available in Powershell 4.0.
     Other methods to configure winrm proved to be not as reliable.
 
-    .Net 4.5: http://www.microsoft.com/en-us/download/details.aspx?id=30653
-    WMF 4.0 : http://www.microsoft.com/en-us/download/details.aspx?id=40855
+    * .Net 4.5: http://www.microsoft.com/en-us/download/details.aspx?id=30653
+    * WMF 4.0 : http://www.microsoft.com/en-us/download/details.aspx?id=40855
 
 5. Install updates, software etc.
 6. Inside the VM, launch command prompt with administrator privileges and run this command:
