@@ -30,11 +30,11 @@ wmic useraccount where "name='vagrant'" set PasswordExpires=FALSE
 $puppet_batch = 'c:\Windows\Setup\Scripts\puppet.bat'
 $chef_batch = 'c:\Windows\Setup\Scripts\chef.bat'
 
-if (!(Test-Path $puppet_batch)){
+if ((Test-Path $puppet_batch)){
     Start-Process $puppet_batch -Wait
 }
 
-if (!(Test-Path $chef_batch)){
+if ((Test-Path $chef_batch)){
     Start-Process $chef_batch -Wait
 }
 
