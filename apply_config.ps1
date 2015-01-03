@@ -31,11 +31,11 @@ $puppet_batch = 'c:\Windows\Setup\Scripts\puppet.bat'
 $chef_batch = 'c:\Windows\Setup\Scripts\chef.bat'
 
 if (!(Test-Path $puppet_batch)){
-    Start-Process $puppet_batch
+    Start-Process $puppet_batch -Wait
 }
 
 if (!(Test-Path $chef_batch)){
-    Start-Process $chef_batch
+    Start-Process $chef_batch -Wait
 }
 
 $adapters | foreach { $_.enable() }

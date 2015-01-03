@@ -15,6 +15,7 @@ After VM is packaged, it can later be provisioned using puppet or chef.
     * VRAM: 128MB
     * CPU: 2x
     * Name: win7_vm
+    * One network adapter
 
     Also make sure to set 1st network adapter to NAT.
 
