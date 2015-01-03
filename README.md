@@ -20,16 +20,8 @@ After VM is packaged, it can later be provisioned using puppet or chef.
 
 2. Install Widnows 7 32/64bit (included answer files are for Professional edition), don't go past the Welcome Screen (IMPORTANT)
 3. On Welcome Screen press CTRL+Shift+F3 to reboot in Audit Mode
-4. Install .Net Framework 4.5 and Windows Management Framework 4.0 (IMPORTANT).
-    During initialization it uses `Enable-PSRemoting -SkipNetworkProfileCheck -Force` command, which automatically
-    configures WinRM service and it is only available in Powershell 4.0.
-    Other methods to configure WinRM proved to be not as reliable.
-
-    * .Net 4.5: http://www.microsoft.com/en-us/download/details.aspx?id=30653
-    * WMF 4.0 : http://www.microsoft.com/en-us/download/details.aspx?id=40855
-
-5. Install updates, software etc.
-6. Inside the VM, launch command prompt with administrator privileges and run this command:
+4. Install updates, software etc.
+5. Inside the VM, launch command prompt with administrator privileges and run this command:
 
 ```bash
 powershell -executionPolicy bypass -Command "(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/master/prepare.ps1','C:\Windows\Temp\prepare.ps1');iex 'c:\Windows\Temp\prepare.ps1'"
