@@ -22,7 +22,9 @@ After VM is packaged, it can later be provisioned using puppet or chef.
 2. Install Widnows 7 32/64bit (included answer files are for Professional edition), don't go past the Welcome Screen (IMPORTANT)
 3. On Welcome Screen press CTRL+Shift+F3 to reboot in Audit Mode
 4. Install updates, software etc.
-5. Inside the VM, launch command prompt with administrator privileges and run this command:
+5. Install Virtual Box Guest Additions
+6. Remove any mounted cd/dvd drives
+7. Inside the VM, launch command prompt with administrator privileges and run this command:
 
 ```bash
 powershell -executionPolicy bypass -Command "(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/master/prepare.ps1','C:\Windows\Temp\prepare.ps1');iex 'c:\Windows\Temp\prepare.ps1'"
@@ -59,7 +61,7 @@ powershell -executionPolicy bypass -Command "(New-Object System.Net.WebClient).D
 If you want to disable local drive redirection, use windows remote desktop gui or supply
 configuration.rdp (which can also be generated with windows rdp gui):
 
-% vagrant rdp -- /edit configuration.rdp
+```% vagrant rdp -- /edit configuration.rdp```
 
 * User: vagrant
 * Password: vagrant
