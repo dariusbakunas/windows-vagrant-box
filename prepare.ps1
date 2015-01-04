@@ -6,10 +6,11 @@ Param(
 )
 
 Function ConfigureVariables{
-    $script:baseUrl = 'https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/master'
+    $script:baseUrl = 'https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/develop'
     $script:sdeleteUrl = 'http://download.sysinternals.com/files/SDelete.zip'
     $script:setupComplete = 'SetupComplete.cmd'
     $script:chefBatch = 'chef.bat'
+    $script:config_script = 'apply_config.ps1'
 
     $script:scriptPath = 'c:\Windows\Setup\Scripts'
     $script:sysprepPath = 'c:\Windows\System32\sysprep'
@@ -48,6 +49,11 @@ Function DownloadFile{
     }else{
         (New-Object System.Net.WebClient).DownloadFile("$url", "$destination/$filename")
     }
+}
+
+Function SaveMAC{
+    $adapter = gwmi Win32_NetworkAdapter | where {$_.AdapterType -like 'ethernet*'} | Select-Object -first 1
+    $adapter.MACAddress > $scriptPath\mac.txt
 }
 
 Function Compact{
@@ -115,7 +121,7 @@ if (!(Test-Path $scriptPath)){
 }
 
 if ($skipPuppet -eq $false){
-    DownloadFile "$baseUrl/$puppetBatch" $scriptPath
+    DownloadFile "$baseUrl/$puppetBatch" $scriptPath 'puppet.bat'
 }
 
 if ($skipChef -eq $false){
@@ -123,6 +129,9 @@ if ($skipChef -eq $false){
 }
 
 DownloadFile "$baseUrl/$setupComplete" $scriptPath
+DownloadFile "$baseUrl/$config_script" $scriptPath
+
+SaveMAC
 
 if ($skipCompact -eq $false){
     Compact
