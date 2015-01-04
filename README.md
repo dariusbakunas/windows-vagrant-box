@@ -56,5 +56,10 @@ powershell -executionPolicy bypass -Command "(New-Object System.Net.WebClient).D
 % vagrant rdp
 ```
 
+If you want to disable local drive redirection, use windows remote desktop gui or supply
+configuration.rdp (which can also be generated with windows rdp gui):
+
+% vagrant rdp -- /edit configuration.rdp
+
 * User: vagrant
 * Password: vagrant
