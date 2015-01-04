@@ -30,7 +30,7 @@ After VM is packaged, it can later be provisioned using puppet or chef.
 powershell -executionPolicy bypass -Command "(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/dariusbakunas/windows-vagrant-box/master/prepare.ps1','C:\Windows\Temp\prepare.ps1');iex 'c:\Windows\Temp\prepare.ps1'"
 ```
 
-8 VM will shutdown when done. At this point it is ready to be packaged.
+8. VM will shutdown when done. At this point it is ready to be packaged.
 9. In your host machine, download Vagrant and metadata.json (or checkout the git repo) files and package the vm:
 
 ```bash
